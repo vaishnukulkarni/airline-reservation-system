@@ -17,7 +17,8 @@ Reservation of the tickets if the seats are available then the ticket will be bo
 Keep the record of the passengers and helps in availability of seats.
    .
 ## SWOT ANALYSIS
-![SWOT-Sample](Link to Pic)
+![swot analysis](https://user-images.githubusercontent.com/89645779/132304124-0a5e292b-b635-4356-a04a-afc230a1b2fa.jpg)
+
 
 # 4W&#39;s and 1&#39;H
 
@@ -42,7 +43,7 @@ To build a system by adding all features.
 
 # Detail requirements
 ## High Level Requirements:
-|| ID | Description | Category | Status | 
+| ID | Description | Category | Status | 
 | ----- | ----- | ------- | ---------|
 | HR01 | To add a reservation | Techincal | IMPLEMENTED |
 | HR02 | To allot a seat | Techincal | IMPLEMENTED |
