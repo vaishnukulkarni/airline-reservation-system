@@ -43,8 +43,8 @@ To build a system by adding all features.
 
 # Detail requirements
 ## High Level Requirements:
-| ID | Description | Category | Status | 
-| ----- | ----- | ------- | ---------|
+| ID | Description | Category | 
+| ----- | ----- | ------- |
 | HR01 | To add a reservation | Techincal | 
 | HR02 | To allot a seat | Techincal | 
 | HR03 | To display records | Techincal |
@@ -52,8 +52,8 @@ To build a system by adding all features.
 
 
 ##  Low level Requirements:
-| ID | Description | HLR ID | Status (Implemented/Future) |
-| ------ | --------- | ------ | ----- |
+| ID | Description | HLR ID | 
+| ------ | --------- | ------ | 
 | LR01 |To get the passenger details. | HR01 | 
 | LR02 | If no seat available message flight is full. | HR02 |  
 | LR03 | To display all the records and details entered by the passenger. | HR03 | 
