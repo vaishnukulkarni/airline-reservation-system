@@ -1,82 +1,44 @@
-# Output directory
-BUILD = build
+PROJECT_NAME=AIRLINE_RESERVATION_SYSTEM
+#ifdef OS
+RM=del/q
+Fixpath=$(subst /,\,$1)
+EXEC=exe
+else
+ifeq($(shell uname),Linux)
+RM=rm -rf
+Fixpath=$1
+EXEC=out
+end if
+end if
+#output directore
+BUILD=build
+#All source code files
+SRC=airline.c\
+src\reserve.c
 
-# All source code files
-SRC = airline.c\
-src/reserve.c\
+#All test sources
+TEST_SRC=airline.c\
+src\reserve.c\
 test/test_airline.c\
 unity/unity.c
--I ../src\
-#src/reserve.c\
-
-
-# All test source files
-TEST_SRC = _I ../src\
-#src/reserve.c\
-
-test/test_airline.c\
-unity/unity.c\
-
-TEST_OUTPUT = $(BUILD)/Test_$(PROJECT_NAME).exe
-
-# All include folders with header files
-INC	= inc/airline.h\
-reserve.h\
--I ../unity\
-
-#Library Inlcudes
-#INCLUDE_LIBS = 
-INCLUDE_LIBS = -lcunit
-
-
-
-# Document files
-DOCUMENTATION_OUTPUT = documentation/html
-
-# Default target built
-$(PROJECT_NAME):all
-
-# Run the target even if the matching name exists
-.PHONY: run clean test doc all
-
-all: $(SRC) $(BUILD)
-	    gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).exe
-
-
-
-# Document the code using Doxygen
-doc:
-	    make -C ./documentation
-
-# Build and run the unit tests
-test:$(BUILD)
-	gcc $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
-		.\$(TEST_OUTPUT)
-
-    
-
-analyze: test memcheck staticcheck coverage sanitize_check
-
+TEST_OUTPUT=$(BUILD)/TEST_$(PROJECT_NAME).$(EXEC)
+INC =-Iinc\
+-Iunity
+all:$(SRC)$(INC) -o$(call Fixpath,$(PROJ_NAME).$(EXEC)) -lm
+run :all
+./$(call Fixpath,$(PROJ_NAME).$(EXEC))
+build_test:
+gcc $(TEST_SRC) $(INC) $(INCLUDE_LIBS) -o $(call Fixpath,$(PROJ_NAME).$(EXEC)) -lm
+run_test:build test
+./$(call FixPth,$(PROJ_NAME).(EXEC))
+analyze:test mmecheck staticcheck coverage sanitize_check
 staticcheck:
-	    cppcheck --enable=all -iunity .
-
+cppcheck --enable=all -iunity .
 memcheck:
-	    valgrind ./$(TEST_OUTPUT)
-
+valgrind ./$(TEST_OUTPUT)
 sanitize_check:
-	gcc -fsanitize=address -fno-omit-frame-pointer $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
-	./$(TEST_OUTPUT)
-
-coverage:$(TEST_SRC)
-	gcc -fprofile-arcs -ftest-coverage $(TEST_SRC) $(INC) -o $(TEST_OUTPUT) $(INCLUDE_LIBS)
-	.\$(TEST_OUTPUT)
-	gcov -a reserve.c	
-
-# Remove all the built files, invoke by `make clean`
+gcc -fsanitize=address -fno-omit-frame-pointer$(TEST_SRC) $(INC) -o $(TEST_OUTPUT)
+./$(TEST_OUTPUT)
 clean:
-#	rm -rf $(BUILD) $(DOCUMENTATION_OUTPUT) *.gcda *.gcno *.gcov
-	rm -rf $(BUILD) *.gcda *.gcno *.gcov
+$(RM)$(call FixPath,$(PROJ_NAME).$(EXEC))
 
-# Create new build folder if not present
-$(BUILD):
-	    mkdir build
