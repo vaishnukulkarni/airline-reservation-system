@@ -1,12 +1,12 @@
 # TEST PLAN:
 
 ## Table no: High level test plan
-
-| **Test ID** | **Description**                                              | **Exp I/P** | **Exp O/P** | **Actual Out** |**Type Of Test**  |    
-|-------------|--------------------------------------------------------------|------------|-------------|----------------|------------------|
-|  H_01       |--------------------------------------------------------------|  ------------|-------------|----------------|Requirement based |
-|  H_02       |--------------------------------------------------------------|  ------------|-------------|----------------|Scenario based    |
-|  H_03       |--------------------------------------------------------------|  ------------|-------------|----------------|Boundary based    |
+| ID | Description | Category | Status | 
+| ----- | ----- | ------- | ---------|
+| HR01 | To add a reservation | Techincal | IMPLEMENTED |
+| HR02 | To allot a seat | Techincal | IMPLEMENTED |
+| HR03 | To display records | Techincal | IMPLEMENTED | 
+| HR04 | To cancel reservation | Techincal |  IMPLEMENTED  |
 
 ## Table no: Low level test plan
 
