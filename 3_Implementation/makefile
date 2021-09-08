@@ -3,7 +3,9 @@ BUILD = build
 
 # All source code files
 SRC = airline.c\
-reserve.c\
+src/reserve.c\
+test/test_airline.c\
+unity/unity.c
 -I ../src\
 #src/reserve.c\
 
