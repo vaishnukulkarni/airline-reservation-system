@@ -28,8 +28,7 @@ reserve.h\
 #INCLUDE_LIBS = 
 INCLUDE_LIBS = -lcunit
 
-# Project Output name
-PROJECT_OUTPUT = $(BUILD)/$(PROJECT_NAME)
+
 
 # Document files
 DOCUMENTATION_OUTPUT = documentation/html
@@ -43,9 +42,7 @@ $(PROJECT_NAME):all
 all: $(SRC) $(BUILD)
 	    gcc $(SRC) $(INC) -o $(PROJECT_OUTPUT).exe
 
-# Call `make run` to run the application
-run:$(PROJECT_NAME)
-	    .\$(PROJECT_OUTPUT).exe
+
 
 # Document the code using Doxygen
 doc:
